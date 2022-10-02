@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+archivesBaseName = "K9"
+group = 'de.mrbunny.guardian'
+sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.mrbunny.guardian.StartGuardian',
+        'Implementation-Version': project.version
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+dependencies {
+    implementation 'com.discord4j:discord4j-core:3.0.16'
+    implementation 'org.kohsuke:github-api:1.308'
+    implementation 'com.auth0:java-jwt:4.0.0'
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.70'
+    implementation 'com.github.TheElectronWill.Night-Config:toml:3.4.2'
+}
